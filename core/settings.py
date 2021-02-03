@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Majors',
     'Subjects',
     'Colleges',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
