@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, mobile, password, email=None, **extra_fields):
+    def create_user(self, mobile, password=None, email=None, **extra_fields):
         """
         Creates and saves a user with given mobile phone number and password
         :param email:
@@ -34,7 +34,7 @@ class UserManager(BaseUserManager):
         user = self.model(mobile=mobile, password=password)
         user.is_staff = True
         user.is_superuser = True
-
+        user.set_password(password)
         user.save(using=self._db)
 
         return user
@@ -49,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         (1, '女')
     )
     name = models.CharField(max_length=20, null=True, blank=True)
-    mobile = models.CharField(max_length=11, primary_key=True)
+    mobile = models.CharField(max_length=11, unique=True)
     gender = models.IntegerField(choices=SEX_CHOICE, null=True)
     email = models.EmailField(max_length=255, null=True, blank=True)
     college = models.CharField(max_length=40, null=True, blank=True)

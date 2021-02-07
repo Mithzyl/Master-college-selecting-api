@@ -7,7 +7,7 @@ from rest_framework.validators import UniqueValidator
 from Users.models import User
 
 
-class RegisterUserSerializer(serializers.Serializer):
+class UserRegisterSerializer(serializers.Serializer):
     """
     Serializer for the User object
     """
@@ -30,18 +30,20 @@ class RegisterUserSerializer(serializers.Serializer):
         """
         # user = super(UserSerializer, self).create(validated_data=validated_data)
         print(validated_data)
-        user = User.objects.create(mobile=validated_data['mobile'])
-        user.set_password(validated_data['password'])
-        user.save()
+        user = User.objects.create_user(validated_data['mobile'],
+                                        validated_data['password'])
+        # user.set_password(validated_data['password'])
+        # user.save()
 
         return user
 
 
-
-class UserDetailSerializer(serializers.Serializer):
+class UserDetailSerializer(serializers.ModelSerializer):
     """
     Serialize a user detail
     """
     class Meta:
         model = User
-        fields = ('mobile', 'email', 'college')
+        fields = ('mobile', 'name', 'gender', 'email', 'college')
+        extra_kwargs = {'mobile': {'read_only': True}}
+
