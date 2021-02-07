@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 from Users.models import User
 from Colleges.models import Colleges
 from Majors.models import Majors
+from Favorites.models import FavoriteColleges, FavoriteMajors
 from Subjects.models import PoliticSubject, ForeignLanguageSubject,\
                             FirstMajorSubject, SecondMajorSubject
 
@@ -40,4 +41,6 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Colleges)
 admin.site.register(Majors)
+admin.site.register(FavoriteColleges)
+admin.site.register(FavoriteMajors)
 # admin.site.register(SecondMajorSubject)

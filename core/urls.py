@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/', include('Users.urls')),
     path('api/', include('Colleges.urls')),
     path('api/', include('Majors.urls')),
+    path('api/favorites/', include('Favorites.urls')),
     path('login', obtain_jwt_token),
     path('auth', verify_jwt_token)
     # path('api/users/create/', UserView.as_view(), name="create")

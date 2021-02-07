@@ -143,6 +143,6 @@ REST_FRAMEWORK = {
 }
 #签证签发的过期时间
 JWT_AUTH = {
-    # 'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=30),
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'Users.utils.jwt_response_payload_handler',
 }

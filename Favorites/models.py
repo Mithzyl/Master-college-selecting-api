@@ -17,7 +17,7 @@ class FavoriteColleges(models.Model):
         verbose_name_plural = 'Favorite Colleges'
 
     def __str__(self):
-        return self.base
+        return str(self.base)
 
 
 class FavoriteMajors(models.Model):
@@ -30,4 +30,4 @@ class FavoriteMajors(models.Model):
         verbose_name_plural = 'Favorite majors'
 
     def __str__(self):
-        return self.base
+        return str(self.base)
