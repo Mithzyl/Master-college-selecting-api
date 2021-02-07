@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.admin import GroupAdmin
 from django.utils.translation import gettext as _
 from Users.models import User
 from Colleges.models import Colleges
 from Majors.models import Majors
 from Subjects.models import PoliticSubject, ForeignLanguageSubject,\
-                                            FirstMajorSubject, SecondMajorSubject
+                            FirstMajorSubject, SecondMajorSubject
 
 
 class UserAdmin(BaseUserAdmin):
@@ -25,7 +26,15 @@ class UserAdmin(BaseUserAdmin):
             'classes': ('wide',),
             'fields': ('mobile', 'password1', 'password2')
         }),
+
     )
+
+
+# class MajorsAdmin(GroupAdmin):
+#     ordering = ['name']
+#     list_display = ['classes', 'code', 'name']
+#
+#     filter_horizontal = None
 
 
 admin.site.register(User, UserAdmin)

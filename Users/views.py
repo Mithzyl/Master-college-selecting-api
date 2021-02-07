@@ -2,8 +2,6 @@ from rest_framework import viewsets, mixins, authentication, status, permissions
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
-from rest_framework_jwt.utils import jwt_decode_handler
-from rest_framework.views import APIView
 
 from Users.serializers import UserRegisterSerializer, UserDetailSerializer
 

@@ -6,11 +6,12 @@ class Majors(models.Model):
     Manage majors
     """
     MAJOR_CHOICES = (
-        (0, '学术学位'),
-        (1, '专业学位'),
+        (0, '专业学位'),
+        (1, '学术学位'),
     )
+    classes = models.BooleanField(choices=MAJOR_CHOICES)
+    code = models.IntegerField()
     name = models.CharField(max_length=40)
-    classes = models.IntegerField(choices=MAJOR_CHOICES)
 
     class Meta:
         verbose_name = 'Major'
