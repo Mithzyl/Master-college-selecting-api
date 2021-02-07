@@ -9,4 +9,4 @@ class CollegesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Colleges
         fields = ('id', 'name', 'province', 'is_211', 'is_985')
-        read_only_field = ('id', 'name', 'province', 'is_211', 'is_985')
+        read_only_fields = ('id', 'name', 'province', 'is_211', 'is_985')

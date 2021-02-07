@@ -20,7 +20,8 @@ from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('Users.urls')),
-    path('api/info/', include('Colleges.urls')),
+    path('api/', include('Colleges.urls')),
+    path('api/', include('Majors.urls')),
     path('login', obtain_jwt_token),
     path('auth', verify_jwt_token)
     # path('api/users/create/', UserView.as_view(), name="create")
