@@ -9,4 +9,14 @@ class CollegesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Colleges
         fields = ('id', 'name', 'province', 'is_211', 'is_985')
-        read_only_fields = ('id', 'name', 'province', 'is_211', 'is_985')
+        read_only_fields = ('id',)
+
+
+class ForeignKeyCollegesSerializer(serializers.ModelSerializer):
+    """
+       Serializer of Colleges for ForeignKey
+       """
+
+    class Meta:
+        model = Colleges
+        fields = '__all__'

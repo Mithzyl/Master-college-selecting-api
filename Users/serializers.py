@@ -47,3 +47,11 @@ class UserDetailSerializer(serializers.ModelSerializer):
         fields = ('mobile', 'name', 'gender', 'email', 'college')
         extra_kwargs = {'mobile': {'read_only': True}}
 
+
+class ForeignKeyUserSerializer(serializers.ModelSerializer):
+    """
+    Serializer for user foreign key
+    """
+    class Meta:
+        model = User
+        fields = ('mobile', )

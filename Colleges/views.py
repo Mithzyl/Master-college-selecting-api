@@ -9,8 +9,9 @@ from Colleges.serializers import CollegesSerializer
 
 
 class CollegesView(viewsets.ModelViewSet):
-    serializer_class = CollegesSerializer
+    queryset = Colleges.objects.all()
+    serializer_class = CollegesSerializer(queryset, many=True)
     authentication_classes = ()
     permission_classes = (permissions.AllowAny,)
-    queryset = Colleges.objects.all()
+
 
